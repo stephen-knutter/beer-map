@@ -47,7 +47,6 @@ function displaybrews(){
 			};
 	
 			map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
-			/*map.setZoom(12);*/
 			
 			var infoBubble = new InfoBubble({
 						map: map,
@@ -66,8 +65,6 @@ function displaybrews(){
 						arrowStyle: 1
 				});
 				
-				/*var infoWindow = new google.maps.InfoWindow;*/
-				
 				for(var i=0; i < brews.length; i++){
 					var brew = brews[i].getAttribute("brew");
 					var address = brews[i].getAttribute("address");
@@ -84,8 +81,7 @@ function displaybrews(){
 						position: point,
 						icon: './images/beer-mug.png'
 					});
-					
-					/*brewList.push(brew);*/
+				
 					bindMarker(marker, map, infoBubble, html);
 					appendListing(html);
 					storedMarker[id] = marker;
@@ -118,8 +114,6 @@ function init(){
 	var listing = document.getElementById('listing');
 	listing.style.height = height - 225 + "px";
 	
-	
-	/*var infoWindow = new google.maps.InfoWindow;*/
 	if(xmlHttp){
 		xmlHttp.open("GET", "beer_db.php", true);
 		xmlHttp.onreadystatechange = displaybrews;
